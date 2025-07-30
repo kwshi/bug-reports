@@ -1,0 +1,15 @@
+FROM alpine:edge
+
+RUN apk update
+RUN apk add gleam
+
+WORKDIR /root
+RUN gleam new lustre_bug
+
+WORKDIR lustre_bug
+RUN gleam add argv lustre sketch sketch_lustre
+COPY lustre_bug.gleam src/lustre_bug.gleam
+RUN gleam build
+
+ENTRYPOINT ["gleam", "run"]
+CMD []
