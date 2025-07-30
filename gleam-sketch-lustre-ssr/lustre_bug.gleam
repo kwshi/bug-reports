@@ -20,7 +20,9 @@ fn render_sketch_ssr() {
   use <- sketch_lustre.ssr()
   sketch_html.html([], [
     sketch_html.head([], [sketch_html.title([], "hello lustre")]),
-    sketch_html.body(css.class([]), [], [sketch_html.text("foo bar")]),
+    sketch_html.body(css.class([css.color("red")]), [], [
+      sketch_html.text("foo bar"),
+    ]),
   ])
 }
 
@@ -28,7 +30,9 @@ fn render_sketch_manual(stylesheet: sketch.StyleSheet) {
   use <- sketch_lustre.render(stylesheet, [sketch_lustre.node()])
   sketch_html.html([], [
     sketch_html.head([], [sketch_html.title([], "hello lustre")]),
-    sketch_html.body(css.class([]), [], [sketch_html.text("foo bar")]),
+    sketch_html.body(css.class([css.color("red")]), [], [
+      sketch_html.text("foo bar"),
+    ]),
   ])
 }
 
